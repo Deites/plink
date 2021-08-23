@@ -1,0 +1,17 @@
+{% extends 'bitbucketapi/index.html' %}
+
+{% block content %}
+    <p><a href="{% url 'bitbucketapi:requests' %}">Requests</a></p>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <div>
+        {% for n in note %}
+            <p>{{ n.note }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

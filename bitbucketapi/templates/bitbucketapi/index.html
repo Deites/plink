@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+</head>
+<body>
+    <div>
+        {% block content %}
+            <p><span><a href="{% url 'bitbucketapi:note' %}">Notes</a></span> <span><a href="{% url 'bitbucketapi:logout' %}">Exit</a></span></p>
+            {% for r in requestslist %}
+                <p>
+                    <span>{{ r.ip_user }}</span>
+                    <span>{{ r.request_itself }}</span> <br>
+                    <span>Data - {{ r.json }}</span>
+                </p>
+            {% endfor %}
+        {% endblock %}
+    </div>
+</body>
+</html>
